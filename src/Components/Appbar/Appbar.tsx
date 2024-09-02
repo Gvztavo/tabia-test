@@ -80,7 +80,7 @@ const AppBarComponent: React.FC<{ onDrawerToggle: (open: boolean) => void }> = (
               </StyledListItemButtonItem>
 
               <StyledSelectedNestedListItemButton>
-                <StyledListItemButtonItemComparasion primary="Comparasion" />
+                <StyledListItemButtonItemComparasion primary="Comparison" />
               </StyledSelectedNestedListItemButton>
 
               <StyledListItemButtonItem>
