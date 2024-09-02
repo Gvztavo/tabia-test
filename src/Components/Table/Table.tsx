@@ -18,36 +18,25 @@ import Diversity1Icon from '@mui/icons-material/Diversity1';
 import ForestSharpIcon from '@mui/icons-material/ForestSharp';
 import FlagSharpIcon from '@mui/icons-material/FlagSharp';
 import ArrowDropUpIcon from '@mui/icons-material/ArrowDropUp';
+import TableData from '../../Utils/data.json';
 
+
+console.log(TableData)
 
 const getCellStyle = (value: number) => {
   switch (true) {
     case (value < 3):
-      return { backgroundColor: '#FF7777' }; 
+      return { backgroundColor: '#FF7777' };
     case (value < 5):
       return { backgroundColor: '#FFBFBB' };
     case (value < 7):
-      return { backgroundColor: '#DBF2E3' }; 
+      return { backgroundColor: '#DBF2E3' };
     case (value >= 7):
-      return { backgroundColor: '#9BE7B7' }; 
+      return { backgroundColor: '#9BE7B7' };
     default:
       return {};
   }
 };
-
-// Dados da tabela/ Tem que transformar em Json
-const data = [
-  { team: 'All Teams', participation: 97, enps: 97, engagement: 6.2, recognition: 4.9, feedback: 6.2, peers: 6.2, manager: 6.2, satisfaction: 6.2, alignment: 6.2, happiness: 6.2, wellness: 6.2, growth: 6.2, ambassador: 6.2 },
-  { team: 'Team Brazil', participation: 97, enps: 97, engagement: 6.2, recognition: 6.2, feedback: 4.5, peers: 8.4, manager: 6.2, satisfaction: 6.2, alignment: 6.2, happiness: 6.2, wellness: 6.2, growth: 6.2, ambassador: 6.2 },
-  { team: 'Team US', participation: 97, enps: 97, engagement: 6.1, recognition: 3, feedback: 6.1, peers: 6.1, manager: 6.1, satisfaction: 6.1, alignment: 3, happiness: 6.1, wellness: 6.1, growth: 6.1, ambassador: 6.1 },
-  { team: 'Team France', participation: 97, enps: 97, engagement: 6.1, recognition: 6.1, feedback: 6.1, peers: 8.1, manager: 8.3, satisfaction: 7.9, alignment: 6.1, happiness: 6.1, wellness: 6.1, growth: 6.1, ambassador: 6.1 },
-  { team: 'Team England', participation: 97, enps: 97, engagement: 6.2, recognition: 2.3, feedback: 6.2, peers: 6.2, manager: 6.2, satisfaction: 6.2, alignment: 3.4, happiness: 6.2, wellness: 6.2, growth: 6.2, ambassador: 6.2 },
-  { team: 'Team England', participation: 97, enps: 97, engagement: 6.2, recognition: 2.3, feedback: 6.2, peers: 6.2, manager: 6.2, satisfaction: 6.2, alignment: 3.4, happiness: 6.2, wellness: 6.2, growth: 6.2, ambassador: 6.2 },
-  { team: 'Team England', participation: 97, enps: 97, engagement: 6.2, recognition: 2.3, feedback: 6.2, peers: 6.2, manager: 6.2, satisfaction: 6.2, alignment: 3.4, happiness: 6.2, wellness: 6.2, growth: 6.2, ambassador: 6.2 },
-  { team: 'Team England', participation: 97, enps: 97, engagement: 6.2, recognition: 2.3, feedback: 6.2, peers: 6.2, manager: 6.2, satisfaction: 6.2, alignment: 3.4, happiness: 6.2, wellness: 6.2, growth: 6.2, ambassador: 6.2 },
-  { team: 'Team England', participation: 97, enps: 97, engagement: 6.2, recognition: 2.3, feedback: 6.2, peers: 6.2, manager: 6.2, satisfaction: 6.2, alignment: 3.4, happiness: 6.2, wellness: 6.2, growth: 6.2, ambassador: 6.2 },
-];
-
 
 const ComparationTable: React.FC = () => {
 
@@ -60,7 +49,7 @@ const ComparationTable: React.FC = () => {
           <TableRow>
 
             <TableCell sx={{ width: "20%", border: 0, fontSize: "14px", fontWeight: 700, color: '#1C1E2A', fontFamily: "Open Sans", padding: 0 }}>
-              <Grid2 sx={{ display: "flex", paddingLeft: '13px', paddingTop: "235px", border: "1px solid #F1F1F5", paddingBottom:'10px' }}>
+              <Grid2 sx={{ display: "flex", paddingLeft: '13px', paddingTop: "235px", border: {md:"1px solid #F1F1F5", xs:'none', sm:"none"}, paddingBottom: '10px' }}>
 
                 Teams <ArrowDropUpIcon sx={{ color: '#2678FF' }} /></Grid2></TableCell>
 
@@ -384,6 +373,7 @@ const ComparationTable: React.FC = () => {
 
 
           </TableRow>
+
         </TableHead>
 
         <TableRow sx={{ height: '5px' }}>
@@ -391,12 +381,13 @@ const ComparationTable: React.FC = () => {
         </TableRow>
 
         <TableBody>
-          {data.map((row) => (
+          {TableData.map((row) => (
             <TableRow key={row.team}>
 
-              <TableCell sx={{ border: "none", padding: 0 }}><Grid2 sx={{ padding: '0px', height: '52px', border: "1px solid #F1F1F5", display: 'flex', alignItems: "center", paddingLeft: '13px' }}>
-                {row.team}
-              </Grid2></TableCell>
+              <TableCell sx={{ border: "none", padding: 0 }}>
+                <Grid2 sx={{ padding: '0px', height: '52px', border: {md:"1px solid #F1F1F5", xs:'none', sm:"none"}, display: 'flex', alignItems: "center", paddingLeft: '13px', fontFamily: 'Open Sans', fontWeight: 400, color: '#1C1E2A', fontSize: '14px' }}>
+                  {row.team}
+                </Grid2></TableCell>
 
               <TableCell align="center" sx={{ color: '#1C1E2A', fontFamily: 'Open Sans', fontSize: "14px", fontWeight: 600, borderBottom: "5px solid white" }}>{row.participation}</TableCell>
 
