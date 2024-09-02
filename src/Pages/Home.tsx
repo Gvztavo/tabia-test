@@ -27,11 +27,11 @@ function App() {
       <ContentWrapper open={drawerOpen}>
 
         <SectionTitle title='Comparison' />
-        <Grid2 sx={{backgroundColor:"#FFFFFF"}}>
-          <Grid2 sx={{height:"70px", borderBottom:'1px solid #F1F1F5',display:{md:'flex', xs:'none'}}}/>
+        <Grid2 sx={{ backgroundColor: "#FFFFFF" }}>
+          <Grid2 sx={{ height: { md: "70px", xs: '35px' }, borderBottom: '1px solid #F1F1F5', display: { md: 'flex', xs: 'flex' } }} />
 
-          <Grid2 sx={{padding:{md:'50px', xs:'0px'}}}>
-          <ComparationTable />
+          <Grid2 sx={{ padding: { md: '50px', xs: '10px 0px' } }}>
+            <ComparationTable />
           </Grid2>
         </Grid2>
       </ContentWrapper>

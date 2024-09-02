@@ -1,9 +1,5 @@
-
 import React from 'react';
-import {
-  Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper,
-  Grid2
-} from '@mui/material';
+import { TableBody, TableContainer, TableHead, TableRow } from '@mui/material';
 import ModeCommentIcon from '@mui/icons-material/ModeComment';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import ShowChartIcon from '@mui/icons-material/ShowChart';
@@ -17,11 +13,19 @@ import EmojiEmotionsIcon from '@mui/icons-material/EmojiEmotions';
 import Diversity1Icon from '@mui/icons-material/Diversity1';
 import ForestSharpIcon from '@mui/icons-material/ForestSharp';
 import FlagSharpIcon from '@mui/icons-material/FlagSharp';
-import ArrowDropUpIcon from '@mui/icons-material/ArrowDropUp';
-import TableData from '../../Utils/data.json';
-
-
-console.log(TableData)
+import data from '../../Utils/data.json';
+import { 
+  ArrowIcon, 
+  IconTitle, 
+  StyledRowsItems, 
+  StyledRowsMain, 
+  StyledRowsTitle, 
+  StyledTableCellCategory, 
+  StyledTableCellHead, 
+  StyledTableMain, 
+  StyledTablePadding, 
+  StyledTitleColumn 
+} from './styled';
 
 const getCellStyle = (value: number) => {
   switch (true) {
@@ -38,389 +42,91 @@ const getCellStyle = (value: number) => {
   }
 };
 
+const getIcon = (iconName: string) => {
+  switch (iconName) {
+    case 'ModeCommentIcon': 
+      return <ModeCommentIcon sx={{ fontSize: "16px" }} />;
+    case 'FavoriteIcon': 
+      return <FavoriteIcon sx={{ fontSize: "16px" }} />;
+    case 'ShowChartIcon': 
+      return <ShowChartIcon sx={{ fontSize: "16px" }} />;
+    case 'EmojiEventsIcon': 
+      return <EmojiEventsIcon sx={{ fontSize: "16px" }} />;
+    case 'CommentIcon': 
+      return <CommentIcon sx={{ fontSize: "16px" }} />;
+    case 'GroupIcon': 
+      return <GroupIcon sx={{ fontSize: "16px" }} />;
+    case 'SettingsInputComponentIcon': 
+      return <SettingsInputComponentIcon sx={{ fontSize: "16px" }} />;
+    case 'ThumbUpIcon': 
+      return <ThumbUpIcon sx={{ fontSize: "16px" }} />;
+    case 'ExploreIcon': 
+      return <ExploreIcon sx={{ fontSize: "16px" }} />;
+    case 'EmojiEmotionsIcon': 
+      return <EmojiEmotionsIcon sx={{ fontSize: "16px" }} />;
+    case 'Diversity1Icon': 
+      return <Diversity1Icon sx={{ fontSize: "16px" }} />;
+    case 'ForestSharpIcon': 
+      return <ForestSharpIcon sx={{ fontSize: "16px" }} />;
+    case 'FlagSharpIcon': 
+      return <FlagSharpIcon sx={{ fontSize: "16px" }} />;
+    default: 
+      return null;
+  }
+};
+
 const ComparationTable: React.FC = () => {
+  const { teams, tableCategory } = data;
 
   return (
-    <TableContainer >
-      <Table sx={{ minWidth: 650 }} aria-label="comparison table">
-
+    <TableContainer>
+      <StyledTableMain>
         <TableHead>
 
           <TableRow>
-
-            <TableCell sx={{ width: "20%", border: 0, fontSize: "14px", fontWeight: 700, color: '#1C1E2A', fontFamily: "Open Sans", padding: 0 }}>
-              <Grid2 sx={{ display: "flex", paddingLeft: '13px', paddingTop: "235px", border: {md:"1px solid #F1F1F5", xs:'none', sm:"none"}, paddingBottom: '10px' }}>
-
-                Teams <ArrowDropUpIcon sx={{ color: '#2678FF' }} /></Grid2></TableCell>
-
-            <TableCell
-              sx={{
-                width: "80px",
-                backgroundColor: '#F8F8F8',
-                writingMode: "vertical-rl",
-                transform: "rotate(180deg)",
-                fontWeight: 600,
-                color: '#62656C',
-                borderRight: "5px solid white",
-                borderBottom: "1px solid white",
-                borderLeft: "5px solid white",
-                fontFamily: "Open Sans",
-                padding: '10px 0px 0px 0px',
-              }}
-            >
-              <ModeCommentIcon sx={{
-                writingMode: "vertical-rl",
-                transform: "rotate(180deg)",
-                color: '#BFC7D0',
-                marginBottom: '10px',
-                fontSize: "16px",
-              }} />
-
-              Participation (%)
-            </TableCell>
-
-            <TableCell
-              sx={{
-                width: "80px",
-                backgroundColor: '#F8F8F8',
-                writingMode: "vertical-rl",
-                transform: "rotate(180deg)",
-                fontWeight: 600,
-                color: '#62656C',
-                border: 0,
-                borderRight: "5px solid white",
-                fontFamily: "Open Sans",
-                padding: '10px 0px 0px 0px'
-              }}
-            >
-              <FavoriteIcon sx={{
-                writingMode: "vertical-rl",
-                transform: "rotate(180deg)",
-                color: '#BFC7D0',
-                marginBottom: '10px',
-                fontSize: "16px"
-              }} />
-              eNPS
-            </TableCell>
-
-            <TableCell
-
-              sx={{
-                width: "80px",
-                backgroundColor: '#F8F8F8',
-                writingMode: "vertical-rl",
-                transform: "rotate(180deg)",
-                fontWeight: 600,
-                color: '#62656C',
-                border: 0,
-                borderRight: "5px solid white",
-                fontFamily: "Open Sans",
-                padding: '10px 0px 0px 0px'
-              }}
-            >
-              <ShowChartIcon sx={{
-                writingMode: "vertical-rl",
-                transform: "rotate(180deg)",
-                color: '#BFC7D0',
-                marginBottom: '10px',
-                fontSize: "16px"
-              }} />
-
-              Overall Engagement
-            </TableCell>
-
-            <TableCell
-              sx={{
-                width: "80px",
-                backgroundColor: '#F8F8F8',
-                writingMode: "vertical-rl",
-                transform: "rotate(180deg)",
-                fontWeight: 600,
-                color: '#62656C',
-                border: 0,
-                borderRight: "5px solid white",
-                fontFamily: "Open Sans",
-                padding: '10px 0px 0px 0px'
-              }}
-            >
-              <EmojiEventsIcon sx={{
-                writingMode: "vertical-rl",
-                transform: "rotate(180deg)",
-                color: '#BFC7D0',
-                marginBottom: '10px',
-                fontSize: "16px"
-              }} />
-
-              Recognition
-            </TableCell>
-
-            <TableCell
-              sx={{
-                width: "80px",
-                backgroundColor: '#F8F8F8',
-                writingMode: "vertical-rl",
-                transform: "rotate(180deg)",
-                fontWeight: 600,
-                color: '#62656C',
-                border: 0,
-                borderRight: "5px solid white",
-                fontFamily: "Open Sans",
-                padding: '10px 0px 0px 0px'
-              }}
-            >
-              <CommentIcon sx={{
-                writingMode: "vertical-rl",
-                transform: "rotate(180deg)",
-                color: '#BFC7D0',
-                marginBottom: '10px',
-                fontSize: "16px"
-              }} />
-
-
-              Feedback
-            </TableCell>
-
-            <TableCell
-              sx={{
-                width: "80px",
-                backgroundColor: '#F8F8F8',
-                writingMode: "vertical-rl",
-                transform: "rotate(180deg)",
-                fontWeight: 600,
-                color: '#62656C',
-                border: 0,
-                borderRight: "5px solid white",
-                fontFamily: "Open Sans",
-                padding: '10px 0px 0px 0px'
-              }}
-            >
-              <GroupIcon sx={{
-                writingMode: "vertical-rl",
-                transform: "rotate(180deg)",
-                color: '#BFC7D0',
-                marginBottom: '10px',
-                fontSize: "16px"
-              }} />
-              Relationship with Peers
-            </TableCell>
-
-            <TableCell
-              sx={{
-                width: "80px",
-                backgroundColor: '#F8F8F8',
-                writingMode: "vertical-rl",
-                transform: "rotate(180deg)",
-                fontWeight: 600,
-                color: '#62656C',
-                border: 0,
-                borderRight: "5px solid white",
-                fontFamily: "Open Sans",
-                padding: '10px 0px 0px 0px'
-              }}
-            >
-              <SettingsInputComponentIcon sx={{
-                writingMode: "vertical-rl",
-                transform: "rotate(180deg)",
-                color: '#BFC7D0',
-                marginBottom: '10px',
-                fontSize: "16px"
-              }} />
-              Relationship with Manager
-            </TableCell>
-
-            <TableCell
-              sx={{
-                width: "80px",
-                backgroundColor: '#F8F8F8',
-                writingMode: "vertical-rl",
-                transform: "rotate(180deg)",
-                fontWeight: 600,
-                color: '#62656C',
-                border: 0,
-                borderRight: "5px solid white",
-                fontFamily: "Open Sans",
-                padding: '10px 0px 0px 0px'
-              }}
-            >
-              <ThumbUpIcon sx={{
-                writingMode: "vertical-rl",
-                transform: "rotate(180deg)",
-                color: '#BFC7D0',
-                marginBottom: '10px',
-                fontSize: "16px"
-              }} />
-
-              Satisfaction
-            </TableCell>
-
-            <TableCell
-              sx={{
-                width: "80px",
-                backgroundColor: '#F8F8F8',
-                writingMode: "vertical-rl",
-                transform: "rotate(180deg)",
-                fontWeight: 600,
-                color: '#62656C',
-                border: 0,
-                borderRight: "5px solid white",
-                fontFamily: "Open Sans",
-                padding: '10px 0px 0px 0px'
-              }}
-            >
-              <ExploreIcon sx={{
-                writingMode: "vertical-rl",
-                transform: "rotate(180deg)",
-                color: '#BFC7D0',
-                marginBottom: '10px',
-                fontSize: "16px"
-              }} />
-              Alignment
-            </TableCell>
-
-            <TableCell
-              sx={{
-                width: "80px",
-                backgroundColor: '#F8F8F8',
-                writingMode: "vertical-rl",
-                transform: "rotate(180deg)",
-                fontWeight: 600,
-                color: '#62656C',
-                border: 0,
-                borderRight: "5px solid white",
-                fontFamily: "Open Sans",
-                padding: '10px 0px 0px 0px'
-              }}
-            >
-              <EmojiEmotionsIcon sx={{
-                writingMode: "vertical-rl",
-                transform: "rotate(180deg)",
-                color: '#BFC7D0',
-                marginBottom: '10px',
-                fontSize: "16px"
-              }} />
-              Happiness
-            </TableCell>
-
-            <TableCell
-              sx={{
-                width: "80px",
-                backgroundColor: '#F8F8F8',
-                writingMode: "vertical-rl",
-                transform: "rotate(180deg)",
-                fontWeight: 600,
-                color: '#62656C',
-                border: 0,
-                borderRight: "5px solid white",
-                fontFamily: "Open Sans",
-                padding: '10px 0px 0px 0px'
-              }}
-            >
-              <Diversity1Icon sx={{
-                writingMode: "vertical-rl",
-                transform: "rotate(180deg)",
-                color: '#BFC7D0',
-                marginBottom: '10px',
-                fontSize: "16px"
-              }} />
-              Wellness
-            </TableCell>
-            <TableCell
-              sx={{
-                width: "80px",
-                backgroundColor: '#F8F8F8',
-                writingMode: "vertical-rl",
-                transform: "rotate(180deg)",
-                fontWeight: 600,
-                color: '#62656C',
-                border: 0,
-                borderRight: "5px solid white",
-                fontFamily: "Open Sans",
-                padding: '10px 0px 0px 0px'
-              }}
-            >
-              <ForestSharpIcon sx={{
-                writingMode: "vertical-rl",
-                transform: "rotate(180deg)",
-                color: '#BFC7D0',
-                marginBottom: '10px',
-                fontSize: "16px"
-              }} />
-              Personal Growth
-            </TableCell>
-            <TableCell
-              sx={{
-                width: "80px",
-                backgroundColor: '#F8F8F8',
-                writingMode: "vertical-rl",
-                transform: "rotate(180deg)",
-                fontWeight: 600,
-                color: '#62656C',
-                border: 0,
-                borderRight: "5px solid white",
-                fontFamily: "Open Sans",
-                padding: '10px 0px 0px 0px'
-              }}
-            >
-              <FlagSharpIcon sx={{
-                writingMode: "vertical-rl",
-                transform: "rotate(180deg)",
-                color: '#BFC7D0',
-                marginBottom: '10px',
-                fontSize: "16px"
-              }} />
-              Ambassadorship
-            </TableCell>
-
-
+            <StyledTableCellHead>
+              <StyledTitleColumn>Teams<ArrowIcon /></StyledTitleColumn>
+            </StyledTableCellHead>
+            {tableCategory.map((data, index) => (
+              <StyledTableCellCategory key={index}>
+                <IconTitle>{getIcon(data.icon)}</IconTitle>
+                {data.title}
+              </StyledTableCellCategory>
+            ))}
           </TableRow>
 
         </TableHead>
 
-        <TableRow sx={{ height: '5px' }}>
-
-        </TableRow>
+        <StyledTablePadding />
 
         <TableBody>
-          {TableData.map((row) => (
+          {teams.map((row) => (
             <TableRow key={row.team}>
+              
+              <StyledRowsMain>
+                <StyledRowsTitle>{row.team}</StyledRowsTitle>
+              </StyledRowsMain>
 
-              <TableCell sx={{ border: "none", padding: 0 }}>
-                <Grid2 sx={{ padding: '0px', height: '52px', border: {md:"1px solid #F1F1F5", xs:'none', sm:"none"}, display: 'flex', alignItems: "center", paddingLeft: '13px', fontFamily: 'Open Sans', fontWeight: 400, color: '#1C1E2A', fontSize: '14px' }}>
-                  {row.team}
-                </Grid2></TableCell>
-
-              <TableCell align="center" sx={{ color: '#1C1E2A', fontFamily: 'Open Sans', fontSize: "14px", fontWeight: 600, borderBottom: "5px solid white" }}>{row.participation}</TableCell>
-
-              <TableCell align="center" sx={{ color: '#1C1E2A', fontFamily: 'Open Sans', fontSize: "14px", fontWeight: 600, border: "5px solid white" }}>{row.enps}</TableCell>
-
-              <TableCell align="center" style={{ color: '#1C1E2A', fontFamily: 'Open Sans', fontSize: "14px", fontWeight: 600, border: "5px solid white" }} sx={getCellStyle(row.engagement)}>{row.engagement}</TableCell>
-
-              <TableCell align="center" style={{ color: '#1C1E2A', fontFamily: 'Open Sans', fontSize: "14px", fontWeight: 600, border: "5px solid white" }} sx={getCellStyle(row.recognition)}>{row.recognition}</TableCell>
-
-              <TableCell align="center" style={{ color: '#1C1E2A', fontFamily: 'Open Sans', fontSize: "14px", fontWeight: 600, border: "5px solid white" }} sx={getCellStyle(row.feedback)}>{row.feedback}</TableCell>
-
-              <TableCell align="center" style={{ color: '#1C1E2A', fontFamily: 'Open Sans', fontSize: "14px", fontWeight: 600, border: "5px solid white" }} sx={getCellStyle(row.peers)}>{row.peers}</TableCell>
-
-              <TableCell align="center" style={{ color: '#1C1E2A', fontFamily: 'Open Sans', fontSize: "14px", fontWeight: 600, border: "5px solid white" }} sx={getCellStyle(row.manager)}>{row.manager}</TableCell>
-
-              <TableCell align="center" style={{ color: '#1C1E2A', fontFamily: 'Open Sans', fontSize: "14px", fontWeight: 600, border: "5px solid white" }} sx={getCellStyle(row.satisfaction)}>{row.satisfaction}</TableCell>
-
-              <TableCell align="center" style={{ color: '#1C1E2A', fontFamily: 'Open Sans', fontSize: "14px", fontWeight: 600, border: "5px solid white" }} sx={getCellStyle(row.alignment)}>{row.alignment}</TableCell>
-
-              <TableCell align="center" style={{ color: '#1C1E2A', fontFamily: 'Open Sans', fontSize: "14px", fontWeight: 600, border: "5px solid white" }} sx={getCellStyle(row.happiness)}>{row.happiness}</TableCell>
-
-              <TableCell align="center" style={{ color: '#1C1E2A', fontFamily: 'Open Sans', fontSize: "14px", fontWeight: 600, border: "5px solid white" }} sx={getCellStyle(row.wellness)}>{row.wellness}</TableCell>
-
-              <TableCell align="center" style={{ color: '#1C1E2A', fontFamily: 'Open Sans', fontSize: "14px", fontWeight: 600, border: "5px solid white" }} sx={getCellStyle(row.growth)}>{row.growth}</TableCell>
-
-              <TableCell align="center" style={{ color: '#1C1E2A', fontFamily: 'Open Sans', fontSize: "14px", fontWeight: 600, border: "5px solid white" }} sx={getCellStyle(row.ambassador)}>{row.ambassador}</TableCell>
+              <StyledRowsItems align="center">{row.participation}</StyledRowsItems>
+              <StyledRowsItems align="center">{row.enps}</StyledRowsItems>
+              <StyledRowsItems align="center" sx={getCellStyle(row.engagement)}>{row.engagement}</StyledRowsItems>
+              <StyledRowsItems align="center" sx={getCellStyle(row.recognition)}>{row.recognition}</StyledRowsItems>
+              <StyledRowsItems align="center" sx={getCellStyle(row.feedback)}>{row.feedback}</StyledRowsItems>
+              <StyledRowsItems align="center" sx={getCellStyle(row.peers)}>{row.peers}</StyledRowsItems>
+              <StyledRowsItems align="center" sx={getCellStyle(row.manager)}>{row.manager}</StyledRowsItems>
+              <StyledRowsItems align="center" sx={getCellStyle(row.satisfaction)}>{row.satisfaction}</StyledRowsItems>
+              <StyledRowsItems align="center" sx={getCellStyle(row.alignment)}>{row.alignment}</StyledRowsItems>
+              <StyledRowsItems align="center" sx={getCellStyle(row.happiness)}>{row.happiness}</StyledRowsItems>
+              <StyledRowsItems align="center" sx={getCellStyle(row.wellness)}>{row.wellness}</StyledRowsItems>
+              <StyledRowsItems align="center" sx={getCellStyle(row.growth)}>{row.growth}</StyledRowsItems>
+              <StyledRowsItems align="center" sx={getCellStyle(row.ambassador)}>{row.ambassador}</StyledRowsItems>
 
             </TableRow>
           ))}
         </TableBody>
-
-      </Table>
+      </StyledTableMain>
     </TableContainer>
   );
 };
+
 export default ComparationTable;
