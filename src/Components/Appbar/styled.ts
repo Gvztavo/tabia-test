@@ -9,6 +9,7 @@ export const StyledDrawerPaper = styled(Grid2)({
 
 export const StyledAppBar = styled(AppBar)({
     zIndex: 1300,
+    backgroundColor: "#FFFFFF",
 });
 
 export const StyledToolbar = styled(Toolbar)({

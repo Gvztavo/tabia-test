@@ -1,18 +1,14 @@
 import { useState } from 'react';
-import '../App.css';
 import AppBarComponent from '../Components/Appbar/Appbar';
-import { styled } from '@mui/system';
-import { Grid2 } from '@mui/material';
 import ComparationTable from '../Components/Table/Table';
 import SectionTitle from '../Components/TitleSection/TitleSection';
-
-
-const ContentWrapper = styled(Grid2)<{ open: boolean }>(({ open }) => ({
-  transition: 'margin 0.3s',
-  marginLeft: open ? 250 : 0,
-  padding: '40px',
-  paddingTop: '80px',
-}));
+import {
+  MainContent,
+  StyledContentMainSpace,
+  ContentGroup,
+  StyledDivider,
+  StyledSection
+} from './styled';
 
 function App() {
   const [drawerOpen, setDrawerOpen] = useState<boolean>(false);
@@ -22,21 +18,18 @@ function App() {
   };
 
   return (
-    <Grid2 sx={{ minHeight: '100vh', backgroundColor: '#F8F8F8' }}>
+    <MainContent>
       <AppBarComponent onDrawerToggle={handleDrawerToggle} />
-      <ContentWrapper open={drawerOpen}>
-
+      <StyledContentMainSpace open={drawerOpen}>
         <SectionTitle title='Comparison' />
-        <Grid2 sx={{ backgroundColor: "#FFFFFF" }}>
-          <Grid2 sx={{ height: { md: "70px", xs: '35px' }, borderBottom: '1px solid #F1F1F5', display: { md: 'flex', xs: 'flex' } }} />
-
-          <Grid2 sx={{ padding: { md: '50px', xs: '10px 0px' } }}>
+        <ContentGroup>
+          <StyledDivider />
+          <StyledSection>
             <ComparationTable />
-          </Grid2>
-        </Grid2>
-      </ContentWrapper>
-
-    </Grid2>
+          </StyledSection>
+        </ContentGroup>
+      </StyledContentMainSpace>
+    </MainContent>
   );
 }
 

@@ -5,7 +5,7 @@ export const SectionContainer = styled(Grid2)({
     display: 'flex',
     justifyContent: 'space-between',
     alignItems: "center",
-    padding: '10px 0px',
+    padding: '10px 0px 25px 0px',
 });
 
 export const SectionTitleText = styled(Typography)({

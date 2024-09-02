@@ -3,7 +3,7 @@ import { Grid2, Table, TableCell, Icon, TableRow } from '@mui/material';
 import ArrowDropUpIcon from '@mui/icons-material/ArrowDropUp';
 
 export const StyledTableMain = styled(Table)({
-    minWidth: 650
+    minWidth: 650,
 });
 
 export const StyledTableCellHead = styled(TableCell)({

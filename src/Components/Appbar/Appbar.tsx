@@ -55,7 +55,7 @@ const AppBarComponent: React.FC<{ onDrawerToggle: (open: boolean) => void }> = (
         open={open}
         onClose={handleDrawer}
         PaperProps={{ component: StyledDrawerPaper }}
-        BackdropProps={{ style: { display: 'none' } }}
+        BackdropProps={{ style: { backgroundColor: 'rgba(0, 0, 0, 0)' } }}
       >
 
         <List>

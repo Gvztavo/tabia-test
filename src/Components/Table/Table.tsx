@@ -102,7 +102,7 @@ const ComparationTable: React.FC = () => {
         <TableBody>
           {teams.map((row) => (
             <TableRow key={row.team}>
-              
+
               <StyledRowsMain>
                 <StyledRowsTitle>{row.team}</StyledRowsTitle>
               </StyledRowsMain>
