@@ -4,7 +4,8 @@ This project is part of the Tabia selection process.
 
 ## How to start
 
-Once cloned, run npm install to install the project's dependencies and then npm start to launch it.
+After cloning, run npm install to install the project's dependencies and then npm start to start it.
+To run the tests, npm test.
 The application will run on (http://localhost:3000/).
 
 
@@ -21,7 +22,7 @@ As soon as you start the project, you'll notice that within src you'll find the 
 
 -Components : These are the components used in the code.
 
--Pages : This is the main page.
+-Pages : This is the main page with a test file.
 
 -Utils : JSON file containing the table information. 
 
