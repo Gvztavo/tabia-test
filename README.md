@@ -1,46 +1,35 @@
-# Getting Started with Create React App
+# Tabia Test
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project is part of the Tabia selection process.
 
-## Available Scripts
+## How to start
 
-In the project directory, you can run:
+Once cloned, run npm install to install the project's dependencies and then npm start to launch it.
+The application will run on (http://localhost:3000/).
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## About the technologies used
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Developed in React with TypeScript, I used the Material-UI library to ensure a modern and responsive interface, as well as Styled Components for more organized styling. With these technologies, I was able to optimize the reading and structure of the code, making the application easier to understand.
 
-### `npm test`
+## Structure
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+As soon as you start the project, you'll notice that within src you'll find the folders :
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+-img : Folder where images originate (profile image).
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+-Components : These are the components used in the code.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+-Pages : This is the main page.
 
-### `npm run eject`
+-Utils : JSON file containing the table information. 
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+I followed the instructions described at the root of the project (https://github.com/tabiahealth/frontend-challenge?tab=readme-ov-file), thus building the web and mobile pages.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
 ## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Library used (https://mui.com/)
 
 To learn React, check out the [React documentation](https://reactjs.org/).
