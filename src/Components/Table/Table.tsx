@@ -22,8 +22,7 @@ import {
   StyledRowsTitle, 
   StyledTableCellCategory, 
   StyledTableCellHead, 
-  StyledTableMain, 
-  StyledTablePadding, 
+  StyledTableMain,  
   StyledTitleColumn 
 } from './styled';
 
@@ -96,8 +95,6 @@ const ComparationTable: React.FC = () => {
           </TableRow>
 
         </TableHead>
-
-        <StyledTablePadding />
 
         <TableBody>
           {teams.map((row) => (

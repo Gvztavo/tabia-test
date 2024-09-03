@@ -1,5 +1,5 @@
 import { styled } from '@mui/system';
-import { Grid2, Table, TableCell, Icon, TableRow } from '@mui/material';
+import { Grid2, Table, TableCell, Icon } from '@mui/material';
 import ArrowDropUpIcon from '@mui/icons-material/ArrowDropUp';
 
 export const StyledTableMain = styled(Table)({
@@ -49,13 +49,9 @@ export const IconTitle = styled(Icon)({
     marginBottom: '10px',
 });
 
-export const StyledTablePadding = styled(TableRow)({
-    height: '5px'
-});
-
 export const StyledRowsMain = styled(TableCell)({
     border: "none",
-    padding: '0px 2px 0px 0px'
+    padding: '0px 0px 0px 0px'
 });
 
 export const StyledRowsTitle = styled(Grid2)({
@@ -75,6 +71,5 @@ export const StyledRowsItems = styled(TableCell)({
     fontFamily: 'Open Sans',
     fontSize: "14px",
     fontWeight: 600,
-    border: "5px solid white"
-});
+    border: "5px solid white"});
 
